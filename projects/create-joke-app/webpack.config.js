@@ -4,12 +4,8 @@ module.exports = withModuleFederationPlugin({
   name: "createJokeApp",
 
   exposes: {
-    // Preferred way: expose corse-grained routes
-    "./routes": "./projects/create-joke-app/src/app/app.routes.ts",
-
-    // Technically possible, but not preferred for Micro Frontends:
-    // Exposing fine-grained components
     "./Component": "./projects/create-joke-app/src/app/create-joke/create-joke.component.ts",
+    "./Missions": "./projects/create-joke-app/src/app/missions/missions.component.ts",
   },
 
   shared: share({

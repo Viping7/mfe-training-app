@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewEncapsulation } from '@angular/core';
 import { DynamicFormComponent } from '../common/dynamic-form/dynamic-form.component';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
   selector: 'app-create-joke',
   imports: [DynamicFormComponent,MatCardModule,MatGridListModule],
   templateUrl: './create-joke.component.html',
-  styleUrl: './create-joke.component.scss'
+  styleUrl: './create-joke.component.scss',
 })
 export class CreateJokeComponent {
   jokeFields = signal<Field[]>([ {

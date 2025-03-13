@@ -1,0 +1,12 @@
+@defer{
+<div class="card-container">
+        <ag-grid-angular   class="ag-theme-alpine"
+        style="width: 100%; height: 550px" [rowData]="rowData" [columnDefs]="colDefs"
+             [defaultColDef]="defaultColDef" [pagination]="true"  [paginationPageSize]="10" [rowSelection]="rowSelection"
+             (gridReady)="onGridReady($event)" [modules]="modules" (selectionChanged)="onSelectionChanged($event)" />
+</div>
+} @loading {
+<h1>Loading</h1>
+} @placeholder {
+<h1>Placeholder content</h1>
+}

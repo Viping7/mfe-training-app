@@ -22,4 +22,14 @@ export const routes: Routes =
                 })
                     .then(m => m.CreateJokeComponent)
         },
+        {
+            path: 'missions',
+            loadComponent: () =>
+                loadRemoteModule({
+                    type: 'module',
+                    remoteEntry: MFE_APP_URL,
+                    exposedModule: './Missions'
+                })
+                    .then(m => m.MissionsComponent)
+        },
     ];
