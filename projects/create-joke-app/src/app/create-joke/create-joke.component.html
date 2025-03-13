@@ -1,1 +1,10 @@
-<app-dynamic-form [fields]="jokeFields()" (createJokeEmitter)="createJoke($event)"/>
+<div class="card-container">
+<mat-card appearance="outlined">
+    <mat-card-header>
+        <h3>Let the world laugh</h3>
+    </mat-card-header>
+    <mat-card-content>
+        <app-dynamic-form [fields]="jokeFields()" (createJokeEmitter)="createJoke($event)"/>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,11 @@
+@use '@angular/material' as mat;
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include mat.button-overrides((
+    filled-container-color: #3f51b5,
+    filled-label-text-color: #fff,
+  ));
+}

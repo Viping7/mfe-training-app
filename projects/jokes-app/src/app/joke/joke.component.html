@@ -1,8 +1,17 @@
-@if(jokes().length>0){
-    @for(joke of jokes();track $index){
-        <ng-container>
-            <h2 [innerHtml]="joke?.setup"></h2>
-            <p>{{joke?.delivery}}</p>
-        </ng-container>
-    }
-}
+<mat-grid-list cols="2">
+    <mat-grid-tile [colspan]="2">
+        <mat-accordion>
+            @if(jokes().length>0){
+            @for(joke of jokes();track $index){
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> {{joke?.setup}} </mat-panel-title>
+                </mat-expansion-panel-header>
+                {{joke?.delivery}}
+                <p></p>
+            </mat-expansion-panel>
+            }
+            }
+        </mat-accordion>
+    </mat-grid-tile> 
+</mat-grid-list>

@@ -5,10 +5,12 @@ import { Router } from '@angular/router';
 import { Field } from '../models/field.type';
 import { JokesService } from '../../../../jokes-app/src/app/services/jokes.service';
 import { Joke } from '../../../../jokes-app/src/app/models/joke.type';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-create-joke',
-  imports: [DynamicFormComponent],
+  imports: [DynamicFormComponent,MatCardModule,MatGridListModule],
   templateUrl: './create-joke.component.html',
   styleUrl: './create-joke.component.scss'
 })

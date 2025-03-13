@@ -2,17 +2,19 @@
 @if(form){
     <form [formGroup]="form" (submit)="this.createJoke()">
         @for(field of fields();track $index){
-            <label>{{field.name}}</label>
+            <mat-form-field class="example-full-width">
+                <mat-label>{{field.name}}</mat-label>
+
             @switch (field.type) {
                 @case ("text") {
-                    <input type="text" formControlName={{field.name}}/>
+                        <input matInput type="text"  formControlName={{field.name}}>
                 }
                 @case ("select") {
-                    <select formControlName={{field.name}}>
+                    <mat-select formControlName={{field.name}}>
                         @for(option of field.options;track $index){
-                            <option value={{option}}>{{option}}</option>
-                        }
-                    </select> 
+                             <mat-option [value]="option">{{option}}</mat-option>
+                            }
+                    </mat-select>
                 }
                 @case ("email") {
                     <input type="text" formControlName={{field.name}}/>
@@ -22,9 +24,12 @@
                 }
             }
             @if(form.get(field.name)?.invalid && (form.get(field.name)?.touched || form.get(field.name)?.dirty)) {
-                <p *ngIf="form?.get(field.name)?.errors?.['required']"> {{field.name}} is required</p>
+                <mat-error  *ngIf="form?.get(field.name)?.errors?.['required']">{{field.name}} is required</mat-error>
+
             }
+        </mat-form-field>
+
         }
-        <button>Post Joke</button>
+        <button mat-flat-button type="submit">Post the joke</button>
     </form>
 }

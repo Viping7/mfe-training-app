@@ -3,10 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { Joke } from '../models/joke.type';
 import { JokesService } from '../services/jokes.service';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-joke',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MatAccordion,MatExpansionModule, MatGridListModule],
   templateUrl: './joke.component.html',
   styleUrl: './joke.component.scss'
 })
@@ -23,7 +25,7 @@ export class JokeComponent {
       if(existingJokesStr){
         existingJokes = JSON.parse(existingJokesStr);
       }
-      this.jokes.update(()=>[...existingJokes,...x.jokes]);
+      this.jokes.update(()=>[...x.jokes,...existingJokes]);
     })
   }
 }
