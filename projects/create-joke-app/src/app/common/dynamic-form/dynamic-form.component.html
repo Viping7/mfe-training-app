@@ -1,0 +1,30 @@
+
+@if(form){
+    <form [formGroup]="form" (submit)="this.createJoke()">
+        @for(field of fields();track $index){
+            <label>{{field.name}}</label>
+            @switch (field.type) {
+                @case ("text") {
+                    <input type="text" formControlName={{field.name}}/>
+                }
+                @case ("select") {
+                    <select formControlName={{field.name}}>
+                        @for(option of field.options;track $index){
+                            <option value={{option}}>{{option}}</option>
+                        }
+                    </select> 
+                }
+                @case ("email") {
+                    <input type="text" formControlName={{field.name}}/>
+                }
+                @case ("radio") {
+                    <input type="radio" formControlName={{field.name}}/>
+                }
+            }
+            @if(form.get(field.name)?.invalid && (form.get(field.name)?.touched || form.get(field.name)?.dirty)) {
+                <p *ngIf="form?.get(field.name)?.errors?.['required']"> {{field.name}} is required</p>
+            }
+        }
+        <button>Post Joke</button>
+    </form>
+}

@@ -1,0 +1,8 @@
+@if(jokes().length>0){
+    @for(joke of jokes();track $index){
+        <ng-container>
+            <h2 [innerHtml]="joke?.setup"></h2>
+            <p>{{joke?.delivery}}</p>
+        </ng-container>
+    }
+}
